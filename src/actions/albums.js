@@ -20,8 +20,9 @@ export function setAlbums(albums) {
   }
 }
 
-//redux-thunk: a function with no arguments that returns a function taking dispatch as argument
-//'always use redux-thunk when making api calls'
+//redux-thunk: a function with no arguments that returns a function taking dispatch as argument, requesting
+//DATA from api and then dispatch it in the response the setAlbums action.
+//'always use redux-thunk when making api calls' used for big scalable apps
 export function getAlbums() {
   return function (dispatch) {
     request('https://jsonplaceholder.typicode.com/albums')
