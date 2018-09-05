@@ -2,11 +2,13 @@ import * as React from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
 import AlbumsList from './albumsList'
+import AddAlbumForm from './AddAlbumForm'
 import { getAlbums } from '../actions/albums'
+import { createAlbum } from '../actions/albums'
 
 class AlbumsListContainer extends React.PureComponent {
   componentDidMount() {
-    this.props.getAlbums()
+    if (!this.props.albums.length) this.props.getAlbums()
   }
 
   render() {
@@ -14,6 +16,7 @@ class AlbumsListContainer extends React.PureComponent {
     if (!this.props.albums) return 'Loading...'
     return (<div>
       <AlbumsList albums={this.props.albums} />
+      <AddAlbumForm createAlbum={this.props.createAlbum} />
     </div>)
   }
 }
@@ -24,4 +27,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default connect(mapStateToProps, { getAlbums })(AlbumsListContainer)
+export default connect(mapStateToProps, { getAlbums, createAlbum })(AlbumsListContainer)
