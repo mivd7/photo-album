@@ -2,12 +2,11 @@ import * as React from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
 import AlbumsList from './albumsList'
-import { setAlbums } from '../actions/albums'
+import { getAlbums } from '../actions/albums'
 
 class AlbumsListContainer extends React.PureComponent {
   componentDidMount() {
-    request('https://jsonplaceholder.typicode.com/albums')
-      .then(response => this.props.setAlbums(response.body))
+    this.props.getAlbums()
   }
 
   render() {
@@ -25,4 +24,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default connect(mapStateToProps, { setAlbums })(AlbumsListContainer)
+export default connect(mapStateToProps, { getAlbums })(AlbumsListContainer)
