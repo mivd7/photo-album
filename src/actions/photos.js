@@ -16,4 +16,13 @@ export function getPhotosByAlbum(albumId) {
         dispatch(setPhotos(response.body))
       })
   }
-} 
+}
+
+// export function getAlbumById(albumId) {
+//   return function (dispatch) {
+//     request(`https://jsonplaceholder.typicode.com/albums?albumId=${albumId}`)
+//       .then(response => {
+//         dispatch(setPhotos(response.body))
+//       })
+//   }
+// }

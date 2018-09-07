@@ -12,7 +12,6 @@ class AlbumsListContainer extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props.albums)
     if (!this.props.albums) return 'Loading...'
     return (<div>
       <AlbumsList albums={this.props.albums} />

@@ -2,6 +2,7 @@ import * as request from 'superagent'
 
 export const ADD_ALBUM = 'ADD_ALBUM'
 export const SET_ALBUMS = 'SET_ALBUMS'
+export const ALBUM_BY_ID = 'ALBUM_BY_ID'
 
 export function addAlbum(id, title) {
   return {
